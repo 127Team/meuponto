@@ -20,13 +20,11 @@ var myApp = angular.module('myApp',['ui.mask']);
         localStorage.setItem("pontoEletronico", JSON.stringify(pontoEletronico));
     } else {
       var pontoEletronico = dataStorage;
-      console.log(pontoEletronico)
     }
 
 		var date = new Date();
     var today = date.toISOString().match(/\d{4}-\d{2}-\d{2}/).join('-');
     var current = $filter('filter')(pontoEletronico.user.registros, {date: today})[0];
-
 
     if (!current || current.length < 1) {
       var registro = {
@@ -43,7 +41,7 @@ var myApp = angular.module('myApp',['ui.mask']);
     $scope.dataAtual = date;
 		$scope.horarioAtual = date.timeNow();
     $scope.pontoEletronico = pontoEletronico;
-
+    
     $scope.addPonto = function () {
       if ($scope.ponto) {
         $scope.pontos.push(formatPonto(angular.copy($scope.ponto)));

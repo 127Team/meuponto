@@ -80,7 +80,7 @@
 				</thead>
 				<tbody>
 					<tr
-						ng-repeat="registro in pontoEletronico.user.registros | orderBy: '-date'"
+						ng-repeat="registro in pontoEletronico.user.registros |orderBy: '-date' track by $index"
 						ng-if="registro.date != (dataAtual | date: 'yyyy-MM-dd')">
 						<td>
 							<h4 class="ui image header">
@@ -114,8 +114,10 @@
 						</div>
 					</div>
 				</div>
-			</div> -->
-		<!-- <div class="bottom-bar">
+			</div>
+			-->
+			<!--
+			<div class="bottom-bar">
 			<button class="ui blue basic button">
 				<i class="icon download"></i>
 				Importar JSON
